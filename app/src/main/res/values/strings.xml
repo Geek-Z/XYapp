@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">校园生活</string>
+
+    <!-- 登录页面使用的字符串 -->
+    <string name="tip_username">请输入用户名/电话/邮箱</string>
+    <string name="tip_password">请输入密码</string>
+</resources>
