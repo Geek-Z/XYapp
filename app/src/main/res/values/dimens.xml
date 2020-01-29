@@ -7,4 +7,7 @@
     <dimen name="login_activity_margin">16dp</dimen>
     <dimen name="view_margin">16dp</dimen>
     <dimen name="logo_space">30dp</dimen>
+
+    <!-- Toolbar 的高度 -->
+    <dimen name="toolbar_height">45dp</dimen>
 </resources>

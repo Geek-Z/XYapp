@@ -15,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 主活动上面不要带字 -->
+        <activity android:name=".MainActivity"
+            android:label="">
+
+        </activity>
     </application>
 
 </manifest>
