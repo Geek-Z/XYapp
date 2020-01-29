@@ -1,5 +1,7 @@
 package geek_z.github.io.xyapp;
 
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     // 获取控件
     private DrawerLayout mDrawerLayout;
+    private NavigationView navView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 获取控件
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        navView = (NavigationView)findViewById(R.id.nav_view);
 
         // 设置ActionBar
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
@@ -33,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_navbar);
         }
+
+        // 设置NavigationView 当中菜单项的点击事件
+        navView.setCheckedItem(R.id.drawer_item1);
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Toast.makeText(MainActivity.this, "" + item.getItemId(), Toast.LENGTH_SHORT).show();
+                mDrawerLayout.closeDrawers();
+                return true;
+            }
+        });
     }
 
 
