@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 滑动菜单显示头像和背景的布局 -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:background="@color/color1"
+    android:layout_width="match_parent"
+    android:layout_height="180dp">
+
+    <!-- 头像 -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/icon_image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/ic_touxiang"/>
+
+    <TextView
+        android:id="@+id/show_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/email"
+        android:textColor="#FFF"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/show_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/show_email"
+        android:text="@string/username"
+        android:textColor="#FFF"
+        android:textSize="14sp"/>
+
+</RelativeLayout>
