@@ -12,6 +12,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import geek_z.github.io.xyapp.utils.DensityUtil;
+
 public class MainActivity extends AppCompatActivity {
 
     // 获取控件
@@ -74,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
              // 当点击了导航栏按钮的时候, 弹出滑动菜单
              case android.R.id.home:
                  mDrawerLayout.openDrawer(GravityCompat.START);
+                 int ret = DensityUtil.dip2px(MainActivity.this, 26);
+                 Toast.makeText(MainActivity.this, "" + ret, Toast.LENGTH_LONG).show();
              default:
          }
          return true;
