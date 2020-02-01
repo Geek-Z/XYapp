@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自定义控件, 底部选项卡的切换按钮 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bk_bottom_tab">
+    <!-- 主页 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/ibtn_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_tab_imageButton_size"
+            android:src="@drawable/main"
+            android:background="#00FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#cccccc"
+            android:text="@string/button_tab1"
+            android:textSize="@dimen/bottom_tab_textSize"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <!-- 消息 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/ibtn_message"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_tab_imageButton_size"
+            android:src="@drawable/message"
+            android:background="#00FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#cccccc"
+            android:text="@string/button_tab2"
+            android:textSize="@dimen/bottom_tab_textSize"
+            android:textAlignment="center"/>
+    </LinearLayout>
+    <!-- 活动 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/ibtn_activity"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_tab_imageButton_size"
+            android:src="@drawable/activity"
+            android:background="#00FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#cccccc"
+            android:text="@string/button_tab3"
+            android:textSize="@dimen/bottom_tab_textSize"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <!-- 联系人 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:id="@+id/ibtn_contact"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_tab_imageButton_size"
+            android:src="@drawable/contact"
+            android:background="#00FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#cccccc"
+            android:text="@string/button_tab4"
+            android:textSize="@dimen/bottom_tab_textSize"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <!-- 动态 -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <ImageButton
+            android:id="@+id/ibtn_live"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_tab_imageButton_size"
+            android:src="@drawable/live"
+            android:background="#00FFFFFF" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#cccccc"
+            android:text="@string/button_tab5"
+            android:textSize="@dimen/bottom_tab_textSize"
+            android:textAlignment="center"/>
+    </LinearLayout>
+</LinearLayout>

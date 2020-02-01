@@ -10,4 +10,9 @@
 
     <!-- Toolbar 的高度 -->
     <dimen name="toolbar_height">45dp</dimen>
+
+    <!-- 底部切换栏的字体和ImageButton 的大小-->
+    <dimen name="bottom_tab_imageButton_size">36dp</dimen>
+    <dimen name="bottom_tab_textSize">10sp</dimen>
+
 </resources>

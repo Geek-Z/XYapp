@@ -8,4 +8,13 @@
     <!-- 滑动菜单当中显示的个人信息 -->
     <string name="username">MusaGeek</string>
     <string name="email">geek_zh@163.com</string>
+
+    <!-- 底部切换按钮的名称 -->
+    <string name="button_tab1">主页</string>
+    <string name="button_tab2">消息</string>
+    <string name="button_tab3">活动</string>
+    <string name="button_tab4">联系人</string>
+    <string name="button_tab5">动态</string>
+
 </resources>
+

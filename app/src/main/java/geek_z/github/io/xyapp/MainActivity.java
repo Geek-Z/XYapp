@@ -1,7 +1,10 @@
 package geek_z.github.io.xyapp;
 
+import android.support.v4.app.FragmentManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -10,17 +13,38 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
+import geek_z.github.io.xyapp.application.MyApplication;
+import geek_z.github.io.xyapp.fragments.ActivityFragment;
+import geek_z.github.io.xyapp.fragments.MainFragment;
 import geek_z.github.io.xyapp.utils.DensityUtil;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    // 获取控件
+    // 控件
+    private ImageButton[] bottomTabs = new ImageButton[5];
     private DrawerLayout mDrawerLayout;
     private NavigationView navView;
 
-    @Override
+    // 碎片
+    Fragment[] fragments = new Fragment[5];
+
+    // ImageButton的id
+    private int[] imageButtonIds = new int[]{R.id.ibtn_main, R.id.ibtn_message,
+            R.id.ibtn_activity, R.id.ibtn_contact, R.id.ibtn_live};
+
+    // 默认图片
+    private int[] imageDefaultIds = new int[]{R.drawable.main, R.drawable.message,
+            R.drawable.activity, R.drawable.contact, R.drawable.live};
+
+    // 点击后展现的图片
+    private int[] imageFocus = new int[]{R.drawable.main_focus, R.drawable.message_focus,
+            R.drawable.activity_focus, R.drawable.contact_focus, R.drawable.live_focus};
+
+   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -50,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        // 初始化控件
+        for(int i = 0; i < 5; ++i)
+            bottomTabs[i] = (ImageButton)findViewById(imageButtonIds[i]);
+
+        // 设置监听事件
+        for(int i = 0; i < 5; ++i)
+            bottomTabs[i].setOnClickListener(this);
     }
 
 
@@ -66,12 +98,6 @@ public class MainActivity extends AppCompatActivity {
              case R.id.item1:
                  Toast.makeText(MainActivity.this, "Item1", Toast.LENGTH_LONG).show();
                  break;
-             case R.id.item2:
-                 Toast.makeText(MainActivity.this, "Item2", Toast.LENGTH_LONG).show();
-                 break;
-             case R.id.item3:
-                 Toast.makeText(MainActivity.this, "Item3", Toast.LENGTH_LONG).show();
-                 break;
 
              // 当点击了导航栏按钮的时候, 弹出滑动菜单
              case android.R.id.home:
@@ -81,5 +107,81 @@ public class MainActivity extends AppCompatActivity {
              default:
          }
          return true;
+    }
+
+    /**
+     * 给切换栏上面的按钮添加监听事件
+     * @param v
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ibtn_main:
+                Toast.makeText(MyApplication.getContext(), "Main Fragment", Toast.LENGTH_LONG).show();
+                setStated(0);
+                switchFragment(0);
+                break;
+            case R.id.ibtn_message:
+                Toast.makeText(MyApplication.getContext(), "Message Fragment", Toast.LENGTH_LONG).show();
+                setStated(1);
+                switchFragment(1);
+                break;
+            case R.id.ibtn_activity:
+                Toast.makeText(MyApplication.getContext(), "Activity Fragment", Toast.LENGTH_LONG).show();
+                setStated(2);
+                switchFragment(2);
+                break;
+            case R.id.ibtn_contact:
+                Toast.makeText(MyApplication.getContext(), "Contact Fragment", Toast.LENGTH_LONG).show();
+                setStated(3);
+                switchFragment(3);
+                break;
+            case R.id.ibtn_live:
+                Toast.makeText(MyApplication.getContext(), "Live Fragment", Toast.LENGTH_LONG).show();
+                setStated(4);
+                switchFragment(4);
+                break;
+            default:
+        }
+    }
+
+    // 图片样式改变
+    private void setStated(int index) {
+        for(int i = 0; i < 5; ++i)
+            bottomTabs[i].setImageResource(imageDefaultIds[i]);
+        bottomTabs[index].setImageResource(imageFocus[index]);
+    }
+
+    // 切换Fragment
+    private void switchFragment(int index) {
+        Fragment target = null;
+        switch (index) {
+            case 0 :
+                if(fragments[index] == null)
+                    fragments[index] = new MainFragment();
+                target = fragments[index];
+            case 1 :
+                if(fragments[index] == null)
+                    fragments[index] = new ActivityFragment();
+                target = fragments[index];
+            case 2 :
+                if(fragments[index] == null)
+                    fragments[index] = new ActivityFragment();
+                target = fragments[index];
+            case 3 :
+                if(fragments[index] == null)
+                    fragments[index] = new ActivityFragment();
+                target = fragments[index];
+            case 4 :
+                if(fragments[index] == null)
+                    fragments[index] = new ActivityFragment();
+                target = fragments[index];
+            default:
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.main_fragment, target);
+        transaction.commit();
     }
 }
