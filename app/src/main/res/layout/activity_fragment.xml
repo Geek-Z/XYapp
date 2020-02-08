@@ -1,7 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/view_margin">
+
+    <!-- 顶部搜索栏 -->
+    <android.support.v7.widget.SearchView
+        android:id="@+id/activity_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- 轮播图 -->
+    <RelativeLayout
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_below="@id/activity_search"
+        android:id="@+id/slider_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <com.daimajia.slider.library.SliderLayout
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            custom:auto_cycle="true"
+            custom:indicator_visibility="visible"
+            custom:pager_animation="Accordion"
+            custom:pager_animation_span="1100"
+            android:background="@drawable/slider_shape"/>
+
+        <!-- 页面指示器 -->
+        <com.daimajia.slider.library.Indicators.PagerIndicator
+            android:id="@+id/custom_indicator"
+            style="@style/AndroidImageSlider_Corner_Oval_Orange"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp" />
+
+    </RelativeLayout>
+
+    <!-- 官方活动标题 -->
+    <LinearLayout
+        android:id="@+id/title_offical_acticity"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_below="@id/slider_wrapper"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="官方活动"
+            android:textSize="@dimen/activity_title_size"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:text="官方推荐"
+            android:textSize="@dimen/activity_more_size"
+            android:gravity="center"
+            android:textColor="#AAAAAA"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/offical_activity_more"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="更多"
+            android:textSize="@dimen/activity_more_size"
+            android:gravity="center"
+            android:textColor="#AAAAAA"/>
+    </LinearLayout>
+
+    <!-- 官方活动横向滑动 -->
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/title_offical_acticity"
+        android:id="@+id/activity_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_height="wrap_content"/>
+
+    <!-- 学生活动标题-->
+    <LinearLayout
+        android:layout_marginTop="@dimen/view_margin"
+        android:layout_below="@id/activity_recycler_view"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学生活动"
+            android:textSize="@dimen/activity_title_size"
+            android:textColor="#000000"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/student_activity_more"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="更多"
+            android:textSize="@dimen/activity_more_size"
+            android:gravity="center"
+            android:textColor="#AAAAAA"/>
+    </LinearLayout>
+
+    <!-- 悬浮按钮 -->
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

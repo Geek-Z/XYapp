@@ -1,4 +1,4 @@
-package geek_z.github.io.xyapp;
+package geek_z.github.io.xyapp.activities;
 
 import android.support.v4.app.FragmentManager;
 import android.support.annotation.NonNull;
@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,12 +16,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import geek_z.github.io.xyapp.R;
 import geek_z.github.io.xyapp.application.MyApplication;
 import geek_z.github.io.xyapp.fragments.ActivityFragment;
 import geek_z.github.io.xyapp.fragments.MainFragment;
 import geek_z.github.io.xyapp.utils.DensityUtil;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     // 控件
     private ImageButton[] bottomTabs = new ImageButton[5];
@@ -82,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 设置监听事件
         for(int i = 0; i < 5; ++i)
             bottomTabs[i].setOnClickListener(this);
+
+        // 显示以一个Fragment 以及 第一个ImageButton 被选中的状态
+        setStated(0);
+        switchFragment(0);
     }
 
 
@@ -184,4 +188,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction.replace(R.id.main_fragment, target);
         transaction.commit();
     }
+
 }

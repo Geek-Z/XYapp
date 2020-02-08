@@ -1,16 +1,15 @@
-package geek_z.github.io.xyapp;
+package geek_z.github.io.xyapp.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+import geek_z.github.io.xyapp.R;
+
+public class LoginActivity extends BaseActivity implements View.OnClickListener {
 
     // 控件
     private EditText usernameEdit;
